@@ -42,7 +42,7 @@ cat>/etc/v2ray/$user-tls.json<<EOF
       "net": "ws",
       "path": "/MDXCloud",
       "type": "none",
-      "host": "",
+      "host": "${domaim}",
       "tls": "tls"
 }
 EOF
