@@ -50,7 +50,7 @@ cat > /etc/v2ray/$user-none.json <<-EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "member.mdxcloud.net",
+      "add": ".mdxcloud.net",
       "port": "80",
       "id": "${uuid}",
       "aid": "0",
