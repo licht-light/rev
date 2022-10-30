@@ -82,8 +82,7 @@ cat > /etc/v2ray/config.json <<-EOF
           "http",
           "tls"
         ]
-      },
-      "domain": "$domain"
+      }
     }
   ],
   "outbounds": [
