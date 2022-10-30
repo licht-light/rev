@@ -35,15 +35,14 @@ cat>/etc/v2ray/$user-tls.json<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "${domain}",
+      "host": "${domain}",
       "port": "${tls}",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
       "path": "/MDXCloud",
       "type": "none",
-      "host": "${domaim}",
-      "tls": "tls"
+      "tls": "tls",
 }
 EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
