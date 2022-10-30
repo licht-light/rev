@@ -34,13 +34,14 @@ cat > /etc/v2ray/$user-tls.json <<-EOF
       {
       "v": "2",
       "ps": "${user}",
-      "host": "${domaim}",
+      "add": "${domain}",
       "port": "443",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
       "path": "/MDXCloud",
       "type": "none",
+      "host": "",
       "tls": "tls"
 }
 EOF
