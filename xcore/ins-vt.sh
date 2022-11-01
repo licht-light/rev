@@ -65,7 +65,7 @@ cat > /etc/v2ray/config.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/MDXCloud",
+          "path": "/kuota-habis",
           "headers": {
             "Host": ""
           }
@@ -153,7 +153,7 @@ cat > /etc/v2ray/none.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/MDXCloud",
+          "path": "/kuota-habis",
           "headers": {
             "Host": ""
           }
@@ -251,7 +251,7 @@ cat > /etc/v2ray/vless.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/MDXCloud",
+          "path": "/kuota-habis",
           "headers": {
             "Host": ""
           }
@@ -339,7 +339,7 @@ cat > /etc/v2ray/vnone.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/MDXCloud",
+          "path": "/kuota-habis",
           "headers": {
             "Host": ""
           }
