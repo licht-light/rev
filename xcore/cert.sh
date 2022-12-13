@@ -1,47 +1,48 @@
 #!/bin/bash
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-#GREEN='\033[0;32m'
-#ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-#CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-off='\x1b[m'
-# ==========================================
-# Getting
-
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- icanhazip.com);
+echo "Checking VPS"
 clear
 echo start
 sleep 0.5
-source /var/lib/fsidvpn/ipvps.conf
-domain=$(cat /etc/v2ray/domain)
-echo -e "[ ${green}INFO${NC} ] Start " 
-sleep 1
-Cek=$(lsof -i:80 | cut -d' ' -f1 | awk 'NR==2 {print $1}')
-if [[ ! -z "$Cek" ]]; then
-sleep 1
-echo -e "[ ${red}WARNING${NC} ] Detected port 80 used by $Cek " 
-systemctl stop $Cek
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Processing to stop $Cek " 
-sleep 1
-fi
-echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
-sleep 2
-echo -e "[ ${green}INFO$NC ] Getting acme for cert"
-wget autosc.me/acme.sh >/dev/null 2>&1
-bash acme.sh --install >/dev/null 2>&1
-bash acme.sh --register-account -m wapres.area82@gmail.com
-wget https://get.acme.sh >/dev/null 2>&1 | sh -s email=wapres.area82@gmail.com
-/root/.acme.sh/acme.sh --upgrade --auto-upgrade >/dev/null 2>&1
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt >/dev/null 2>&1
-/root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256
-/root/.acme.sh/acme.sh --installcert -d $domain --ecc --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key
-echo -e "[ ${green}INFO${NC} ] Renew cert done... "
-sleep 5
-rm acme.sh >/dev/null 2>&1
-echo -e "[ ${green}INFO${NC} ] Renew cert done... "
-restart
+source /var/lib/premium-script/ipvps.conf
+domain="$(cat /etc/v2ray/domain)"
+sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
+
+systemctl stop nginx
+mkdir /root/.acme.sh
+curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
+chmod +x /root/.acme.sh/acme.sh
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
+~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
+
+/etc/init.d/ssh restart
+/etc/init.d/dropbear restart
+/etc/init.d/stunnel4 restart
+/etc/init.d/openvpn restart
+/etc/init.d/fail2ban restart
+/etc/init.d/cron restart
+/etc/init.d/nginx restart
+screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
+screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
+screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000
+screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7400 --max-clients 1000
+screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7500 --max-clients 1000
+systemctl restart v2ray@none
+systemctl restart v2ray
+systemctl restart trojan
+systemctl restart v2ray@vless
+systemctl restart v2ray@vnone
+                echo -e ""
+                echo -e "======================================"
+                echo -e ""
+                echo -e "          Service/s Restarted         "
+                echo -e ""
+                echo -e "======================================"
+                exit
+clear 
+neofetch
