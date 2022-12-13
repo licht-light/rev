@@ -22,24 +22,14 @@ wget https://${Server}/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 
-sleep 1
-echo -e "[ ${red}WARNING${NC} ] Detected port 80 used by $Cek " 
-systemctl stop $Cek
-sleep 2
-echo -e "[ ${green}INFO${NC} ] Processing to stop $Cek " 
-sleep 1
-fi
-echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
-sleep 2
-echo -e "[ ${green}INFO$NC ] Getting acme for cert"
-wget autosc.me/acme.sh >/dev/null 2>&1
-bash acme.sh --install >/dev/null 2>&1
-bash acme.sh --register-account -m wapres.area82@gmail.com
-wget https://get.acme.sh >/dev/null 2>&1 | sh -s email=wapres.area82@gmail.com
-/root/.acme.sh/acme.sh --upgrade --auto-upgrade >/dev/null 2>&1
-/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt >/dev/null 2>&1
-/root/.acme.sh/acme.sh --issue -d $domain --standalone --force --keylength ec-256
-/root/.acme.sh/acme.sh --installcert -d $domain --ecc --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key
+systemctl stop nginx
+mkdir /root/.acme.sh
+curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
+chmod +x /root/.acme.sh/acme.sh
+/root/.acme.sh/acme.sh --upgrade --auto-upgrade
+/root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
+/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
+~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 
 uuid=$(cat /proc/sys/kernel/random/uuid)
 
@@ -75,7 +65,7 @@ cat > /etc/v2ray/config.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/portalWeb/mainlogin.do",
           "headers": {
             "Host": ""
           }
@@ -163,7 +153,7 @@ cat > /etc/v2ray/none.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/portalWeb/mainlogin.do",
           "headers": {
             "Host": ""
           }
@@ -261,7 +251,7 @@ cat > /etc/v2ray/vless.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/portalWeb/mainlogin.do",
           "headers": {
             "Host": ""
           }
