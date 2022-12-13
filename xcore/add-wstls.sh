@@ -35,7 +35,7 @@ cat>/etc/v2ray/$user-tls.json<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "${domain}",
+      "add": "vip.mdxcloud.net",
       "port": "443",
       "id": "${uuid}",
       "aid": "0",
