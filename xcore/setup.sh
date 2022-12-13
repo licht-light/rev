@@ -25,8 +25,8 @@ echo -e "\e[36m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "\E[0;44;38m      INSTALLER - MENU            \E[0m"
 echo -e "\e[36m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo ""
-echo -e " [\e[36m•1\e[0m] Script Auto Installer By Mardhex "
-echo -e " [\e[36m•2\e[0m] Tekan Enter Proses Instalasi "
+echo -e " [\e[36m•1\e[0m] Gunakan Auto Domain Server "
+echo -e " [\e[36m•2\e[0m] Input Manual Domain Pribadi "
 echo -e ""
 echo -e " [\e[36m•0\e[0m] \e[44mBACK TO EXIT/CANCEL\033[0m"
 echo -e   ""
@@ -139,8 +139,8 @@ echo "   - Whatsapp                : *"  | tee -a log-install.txt
 echo "   - Facebook                : *" | tee -a log-install.txt
 echo "------------------Ready Akun Ssh Premium Berkwalitas-----------------" | tee -a log-install.txt
 echo ""
-echo " Server Reboot 4 Detik"
-sleep 4
+echo " Server Reboot 3 Detik"
+sleep 3
 rm -f setup.sh
 reboot
 
