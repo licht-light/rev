@@ -65,7 +65,7 @@ cat > /etc/v2ray/config.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
@@ -139,7 +139,7 @@ cat > /etc/v2ray/none.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 880,
+      "port": 80,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -153,7 +153,7 @@ cat > /etc/v2ray/none.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
@@ -228,7 +228,7 @@ cat > /etc/v2ray/vless.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 883,
+      "port": 8883,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -251,7 +251,7 @@ cat > /etc/v2ray/vless.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
@@ -325,7 +325,7 @@ cat > /etc/v2ray/vnone.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 888,
+      "port": 8880,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -339,7 +339,7 @@ cat > /etc/v2ray/vnone.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/mdxstore",
           "headers": {
             "Host": ""
           }
