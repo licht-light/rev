@@ -39,7 +39,7 @@ cat > /etc/v2ray/$user-tls.json <<-EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/mdxstore",
+      "path": "/worryfree",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
@@ -51,11 +51,11 @@ cat > /etc/v2ray/$user-none.json <<-EOF
       "v": "2",
       "ps": "${user}",
       "add": "vip.mdxcloud.net",
-      "port": "80",
+      "port": "880",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/mdxstore",
+      "path": "/worryfree",
       "type": "none",
       "host": "${domain}",
       "tls": "none"
@@ -73,12 +73,12 @@ echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "Server IP      : $PUBLIC_IP"
 echo -e "port TLS       : 443"
-echo -e "port none TLS  : 80"
+echo -e "port none TLS  : 880"
 echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /mdxstore"
+echo -e "path           : /worryfree"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
