@@ -41,7 +41,7 @@ cat > /etc/v2ray/$user-tls.json <<-EOF
       "net": "ws",
       "path": "http://tsel.me/worryfree",
       "type": "none",
-      "host": "",
+      "host": "z-p15.www.instagram.com",
       "tls": "tls"
 }
 EOF
@@ -57,7 +57,7 @@ cat > /etc/v2ray/$user-none.json <<-EOF
       "net": "ws",
       "path": "http://tsel.me/worryfree",
       "type": "none",
-      "host": "",
+      "host": "z-p15.www.instagram.com",
       "tls": "none"
 }
 EOF
