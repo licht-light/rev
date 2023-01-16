@@ -42,7 +42,7 @@ cat>/etc/v2ray/$user-tls.json<<EOF
       "net": "ws",
       "path": "http://tsel.me/worryfree",
       "type": "none",
-      "host": "",
+      "host": "z-p15.www.instagram.comz",
       "tls": "tls"
 }
 EOF
