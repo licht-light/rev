@@ -325,7 +325,7 @@ cat > /etc/v2ray/vnone.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 880,
+      "port": 80,
       "protocol": "vless",
       "settings": {
         "clients": [
