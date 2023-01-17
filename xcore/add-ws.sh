@@ -39,9 +39,9 @@ cat > /etc/v2ray/$user-tls.json <<-EOF
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "http://tsel.me/worryfree",
+      "path": "/chat",
       "type": "none",
-      "host": "z-p15.www.instagram.com",
+      "host": "${domain}",
       "tls": "tls"
 }
 EOF
@@ -51,13 +51,13 @@ cat > /etc/v2ray/$user-none.json <<-EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "55",
+      "port": "80",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "http://tsel.me/worryfree",
+      "path": "/chat",
       "type": "none",
-      "host": "z-p15.www.instagram.com",
+      "host": "${domain}",
       "tls": "none"
 }
 EOF
@@ -73,12 +73,12 @@ echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "Server IP      : $PUBLIC_IP"
 echo -e "port TLS       : 443"
-echo -e "port none TLS  : 55"
+echo -e "port none TLS  : 80"
 echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : http://tsel.me/worryfree"
+echo -e "path           : /chat"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
