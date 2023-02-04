@@ -51,13 +51,13 @@ cat > /etc/v2ray/$user-none.json <<-EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "80",
+      "port": "55",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
       "path": "/worryfree",
       "type": "none",
-      "host": "${domain}",
+      "host": "z-p15.www.instagram.com",
       "tls": "none"
 }
 EOF
