@@ -36,11 +36,11 @@ cat>/etc/v2ray/$user-tls.json<<EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "443",
+      "port": "8443",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/worryfree",
+      "path": "/chat",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
@@ -63,7 +63,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /worryfree"
+echo -e "path           : /chat"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
