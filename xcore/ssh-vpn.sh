@@ -290,7 +290,7 @@ wget -O trj "https://${Server}/trj.sh"
 wget -O wss "https://${Server}/wss.sh"
 wget -O vls "https://${Server}/vls.sh"
 wget -O updatee "https://${Server}/updatee.sh"
-wget -O auto-reboot "https://${Server}/auto-reboot.sh"
+#wget -O auto-reboot "https://${Server}/auto-reboot.sh"
 wget -O tr-mnt "https://${Server}/tr-mnt.sh"
 wget -O running "https://${Server}/running.sh"
 wget -O cek-user "https://${Server}/cek-user.sh"
@@ -327,7 +327,7 @@ chmod +x trj
 chmod +x wss
 chmod +x vls
 chmod +x updatee
-chmod +x auto-reboot
+#chmod +x auto-reboot
 chmod +x tr-mnt
 chmod +x bbr
 chmod +x running
