@@ -89,11 +89,9 @@ echo -e " 17.  Information Display System"
 
 echo -e " 18.  Restart All Service"
 
-echo -e " 19.  Set Auto Reboot"
+echo -e " 19.  Status Tunneling"
 
-echo -e " 20.  Status Tunneling"
-
-echo -e " 21.  Cek Penggunaan Data User"
+echo -e " 20.  Cek Penggunaan Data User"
 
 echo -e "\e[32m══════════════════════════════════════════\e[m"
 
@@ -217,20 +215,14 @@ restart
 
 ;;
 
+
 19)
-
-auto-reboot
-
-;;
-
-
-20)
 
 running
 
 ;;
 
-21)
+20)
 
 cek-usage
 
