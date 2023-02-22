@@ -36,11 +36,11 @@ cat>/etc/v2ray/$user-tls.json<<EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "8443",
+      "port": "443",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/portal/id/indexpersonal",
+      "path": "/mdxstore",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
@@ -63,7 +63,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /portal/id/indexpersonal"
+echo -e "path           : /mdxstore"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
