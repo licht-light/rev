@@ -34,8 +34,8 @@ sed -i '/#tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/v2ray/vless.json
 sed -i '/#none$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/v2ray/vnone.json
-vlesslink1="vless://${uuid}@${domain}:$tls?path=/portal/id/indexpersonal&security=tls&encryption=none&type=ws#${user}"
-vlesslink2="vless://${uuid}@${domain}:$none?path=/portal/id/indexpersonal&encryption=none&type=ws#${user}"
+vlesslink1="vless://${uuid}@${domain}:$tls?path=/mdxstore&security=tls&encryption=none&type=ws#${user}"
+vlesslink2="vless://${uuid}@${domain}:$none?path=/mdxstore&encryption=none&type=ws#${user}"
 systemctl restart v2ray@vless
 systemctl restart v2ray@vnone
 clear
@@ -50,7 +50,7 @@ echo -e "port none TLS  : $none"
 echo -e "id             : ${uuid}"
 echo -e "Encryption     : none"
 echo -e "network        : ws"
-echo -e "path           : /portal/id/indexpersonal"
+echo -e "path           : /mdxstore"
 echo -e "================================="
 echo -e "link TLS       : ${vlesslink1}"
 echo -e "================================="
