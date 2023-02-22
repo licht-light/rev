@@ -35,7 +35,7 @@ SSTP VPN
 Server IP     : $IP
 Username      : $user
 Password      : $pass
-Port          : $sstp
+Port          : 443
 Cert          : http://$IP:81/server.crt
 Expired On    : $exp
 echo -e "==============================="
