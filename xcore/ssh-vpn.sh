@@ -283,6 +283,7 @@ wget -O port-vless "https://${Server}/port-vless.sh"
 wget -O xp "https://${Server}/xp.sh"
 wget -O kernel-updt "https://${Server}/kernel-update.sh"
 wget -O ssstp "https://${Server}/ssstp.sh"
+wget -O sstp "https://${Server}/sstp.sh"
 wget -O sssr "https://${Server}/sssr.sh"
 wget -O ltp "https://${Server}/ltp.sh"
 wget -O wgg "https://${Server}/wgg.sh"
@@ -320,6 +321,7 @@ chmod +x wbmn
 chmod +x xp
 chmod +x tessh
 chmod +x ssstp
+chmod +x sstp
 chmod +x sssr
 chmod +x ltp
 chmod +x wgg
