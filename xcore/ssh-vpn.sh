@@ -116,24 +116,6 @@ chmod +x /etc/rc.local
 #coba jalankan badvpn 7300
 screen -dmS udpvpn /bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000 --max-connections-for-client 10
 
-# setting port ssh
-sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
-
-# install dropbear
-#apt -y install dropbear
-#sed -i 's/NO_START=1/NO_START=0/g' /etc/default/dropbear
-#sed -i 's/DROPBEAR_PORT=22/DROPBEAR_PORT=143/g' /etc/default/dropbear
-#sed -i 's/DROPBEAR_EXTRA_ARGS=/DROPBEAR_EXTRA_ARGS="-p 109 -p 69"/g' /etc/default/dropbear
-#echo "/bin/false" >> /etc/shells
-#echo "/usr/sbin/nologin" >> /etc/shells
-#/etc/init.d/dropbear restart
-
-# install squid
-cd
-#apt -y install squid3
-#wget -O /etc/squid/squid.conf "https://${Server}/squid3.conf"
-#sed -i $MYIP2 /etc/squid/squid.conf
-
 # setting vnstat
 apt -y install vnstat
 /etc/init.d/vnstat restart
@@ -151,43 +133,16 @@ systemctl enable vnstat
 rm -f /root/vnstat-2.6.tar.gz
 rm -rf /root/vnstat-2.6
 
-#install sslh
-cd
-#wget https://${Server}/sslh.sh && chmod +x sslh.sh && sed -i -e 's/\r$//' sslh.sh && screen -S sslh ./sslh.sh
-
-#Install Edu
-#cd
-#wget https://${Server}/websocket.sh && chmod +x websocket.sh && ./websocket.sh
-#wget https://${Server}/edu.sh && chmod +x edu.sh && screen -S edu ./edu.sh
-#rm -f /root/edu.sh
-#rm -f /root/websocket.sh
-#clear
-
 # install stunnel
-#cd
-#apt install stunnel4 -y
-#cat > /etc/stunnel/stunnel.conf <<-END
-#cert = /etc/stunnel/stunnel.pem
-#client = no
-#socket = a:SO_REUSEADDR=1
-#socket = l:TCP_NODELAY=1
-#socket = r:TCP_NODELAY=1
+cd
+apt install stunnel4 -y
+cat > /etc/stunnel/stunnel.conf <<-END
+cert = /etc/stunnel/stunnel.pem
+client = no
+socket = a:SO_REUSEADDR=1
+socket = l:TCP_NODELAY=1
+socket = r:TCP_NODELAY=1
 
-#[stunnelws]
-#accept = 3127
-#connect = 127.0.0.1:443
-
-#[dropbear]
-#accept = 222
-#connect = 127.0.0.1:22
-
-#[dropbear]
-#accept = 777
-#connect = 127.0.0.1:22
-
-#[openvpn]
-#accept = 442
-#connect = 127.0.0.1:1194
 
 END
 
@@ -196,10 +151,6 @@ openssl genrsa -out key.pem 2048
 openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
 -subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
 cat key.pem cert.pem >> /etc/stunnel/stunnel.pem
-
-# konfigurasi stunnel
-#sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
-#/etc/init.d/stunnel4 restart
 
 #OpenVPN
 wget https://${Server}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
@@ -233,11 +184,6 @@ echo '.....done'
 echo; echo 'Installation has completed.'
 echo 'Config file is at /usr/local/ddos/ddos.conf'
 echo 'Please send in your comments and/or suggestions to zaf@vsnl.com'
-
-# banner /etc/issue.net
-#wget -O /etc/issue.net "https://${Server}/bannerssh.conf"
-#echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
-#sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -291,7 +237,6 @@ wget -O trj "https://${Server}/trj.sh"
 wget -O wss "https://${Server}/wss.sh"
 wget -O vls "https://${Server}/vls.sh"
 wget -O updatee "https://${Server}/updatee.sh"
-#wget -O auto-reboot "https://${Server}/auto-reboot.sh"
 wget -O tr-mnt "https://${Server}/tr-mnt.sh"
 wget -O running "https://${Server}/running.sh"
 wget -O cek-user "https://${Server}/cek-user.sh"
@@ -329,7 +274,6 @@ chmod +x trj
 chmod +x wss
 chmod +x vls
 chmod +x updatee
-#chmod +x auto-reboot
 chmod +x tr-mnt
 chmod +x bbr
 chmod +x running
@@ -351,12 +295,7 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/nginx restart
 /etc/init.d/openvpn restart
 /etc/init.d/cron restart
-#/etc/init.d/ssh restart
-/etc/init.d/dropbear restart
 /etc/init.d/fail2ban restart
-#/etc/init.d/stunnel4 restart
-/etc/init.d/vnstat restart
-#/etc/init.d/squid restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
