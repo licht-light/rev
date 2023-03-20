@@ -12,9 +12,6 @@ echo -e "======================================" | lolcat
 echo -e ""
 echo -e ""
 echo -e "    [1] Restart All Services"
-echo -e "    [2] Restart OpenSSH"
-echo -e "    [3] Restart Dropbear"
-echo -e "    [4] Restart Stunnel4"
 echo -e "    [5] Restart OpenVPN"
 echo -e "    [6] Restart Nginx"
 echo -e "    [7] Restart Badvpn"
@@ -28,9 +25,9 @@ clear
 case $Restart in
                 1)
                 clear
-                /etc/init.d/ssh restart
-                /etc/init.d/dropbear restart
-                /etc/init.d/stunnel4 restart
+                #/etc/init.d/ssh restart
+                #/etc/init.d/dropbear restart
+                #/etc/init.d/stunnel4 restart
                 /etc/init.d/openvpn restart
                 /etc/init.d/fail2ban restart
                 /etc/init.d/cron restart
@@ -49,7 +46,7 @@ case $Restart in
                 ;;
                 2)
                 clear
-                /etc/init.d/ssh restart
+                #/etc/init.d/ssh restart
                 echo -e ""
                 echo -e "======================================" | lolcat
                 echo -e ""
@@ -71,7 +68,7 @@ case $Restart in
                 ;;
                 4)
                 clear
-                /etc/init.d/stunnel4 restart
+                #/etc/init.d/stunnel4 restart
                 echo -e ""
                 echo -e "======================================" | lolcat
                 echo -e ""
