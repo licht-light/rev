@@ -134,14 +134,14 @@ rm -f /root/vnstat-2.6.tar.gz
 rm -rf /root/vnstat-2.6
 
 # install stunnel
-cd
-apt install stunnel4 -y
-cat > /etc/stunnel/stunnel.conf <<-END
-cert = /etc/stunnel/stunnel.pem
-client = no
-socket = a:SO_REUSEADDR=1
-socket = l:TCP_NODELAY=1
-socket = r:TCP_NODELAY=1
+#cd
+#apt install stunnel4 -y
+#cat > /etc/stunnel/stunnel.conf <<-END
+#cert = /etc/stunnel/stunnel.pem
+#client = no
+#socket = a:SO_REUSEADDR=1
+#socket = l:TCP_NODELAY=1
+#socket = r:TCP_NODELAY=1
 
 
 END
