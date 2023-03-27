@@ -42,7 +42,7 @@ cat > /etc/v2ray/config.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 8443,
+      "port": 443,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -65,7 +65,7 @@ cat > /etc/v2ray/config.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/alsanet",
           "headers": {
             "Host": ""
           }
@@ -139,7 +139,7 @@ cat > /etc/v2ray/none.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 8080,
+      "port": 80,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -153,7 +153,7 @@ cat > /etc/v2ray/none.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/alsanet",
           "headers": {
             "Host": ""
           }
@@ -228,7 +228,7 @@ cat > /etc/v2ray/vless.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 880,
+      "port": 8880,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -251,7 +251,7 @@ cat > /etc/v2ray/vless.json <<-EOF
           ]
         },
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/alsanet",
           "headers": {
             "Host": ""
           }
@@ -325,7 +325,7 @@ cat > /etc/v2ray/vnone.json <<-EOF
   },
   "inbounds": [
     {
-      "port": 80,
+      "port": 8080,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -339,7 +339,7 @@ cat > /etc/v2ray/vnone.json <<-EOF
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/worryfree",
+          "path": "/alsanet",
           "headers": {
             "Host": ""
           }
@@ -409,7 +409,7 @@ cat > /etc/trojan/config.json <<-EOF
 {
     "run_type": "server",
     "local_addr": "0.0.0.0",
-    "local_port": 443,
+    "local_port": 8443,
     "remote_addr": "127.0.0.1",
     "remote_port": 2603,
     "password": [
