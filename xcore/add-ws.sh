@@ -35,11 +35,11 @@ cat > /etc/v2ray/$user-tls.json <<-EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "8443",
+      "port": "443",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/worryfree",
+      "path": "/alsanet",
       "type": "none",
       "host": "${domain}",
       "tls": "tls"
@@ -51,11 +51,11 @@ cat > /etc/v2ray/$user-none.json <<-EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "8080",
+      "port": "80",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
-      "path": "/worryfree",
+      "path": "/alsanet",
       "type": "none",
       "host": "${domain}",
       "tls": "none"
@@ -72,13 +72,13 @@ echo -e "==========-V2RAY/VMESS-=========="
 echo -e "Remarks        : ${user}"
 echo -e "Domain         : ${domain}"
 echo -e "Server IP      : $PUBLIC_IP"
-echo -e "port TLS       : 8443"
-echo -e "port none TLS  : 8080"
+echo -e "port TLS       : 443"
+echo -e "port none TLS  : 80"
 echo -e "id             : ${uuid}"
 echo -e "alterId        : 0"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /worryfree"
+echo -e "path           : /alsanet"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
