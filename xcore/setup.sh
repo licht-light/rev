@@ -2,6 +2,31 @@
 #Script By Mardhex
 #telegram https://t.me/mardhex
 # // Export Color & Information
+GitUser="perizinan" 
+# // MY IPVPS 
+export MYIP=$(curl -sS ipv4.icanhazip.com) 
+ 
+# // GETTING 
+VALIDITY () { 
+    today=date -d "0 days" +"%Y-%m-%d" 
+    Exp1=$(curl -sS https://raw.githubusercontent.com/kmardhex/izin/main/ipvps.conf | grep $MYIP | awk '{print $3}') 
+    if [[ $today < $Exp1 ]]; then 
+    echo -e "\e[32mYOUR SCRIPT ACTIVE..\e[0m" 
+    else 
+    echo -e "\e[31mYOUR SCRIPT HAS EXPIRED!\e[0m"; 
+    echo -e "\e[31mPlease renew your ipvps first\e[0m" 
+    exit 0 
+fi 
+} 
+IZIN=$(curl -sS https://raw.githubusercontent.com/kmardhex/izin/main/ipvps.conf | awk '{print $2}' | grep $MYIP) 
+if [ $MYIP = $IZIN ]; then 
+echo -e "\e[32mPermission Accepted...\e[0m" 
+VALIDITY 
+else 
+echo -e "\e[31mPermission Denied!\e[0m"; 
+echo -e "\e[31mPlease buy script first\e[0m" 
+exit 0 
+fi 
 export RED='\033[0;31m'
 export GREEN='\033[0;32m'
 export YELLOW='\033[0;33m'
