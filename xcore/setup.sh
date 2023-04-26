@@ -20,7 +20,7 @@ VALIDITY () {
 fi 
 } 
 IZIN=$(curl -sS https://raw.githubusercontent.com/kmardhex/izin/main/ipvps.conf | awk '{print $2}' | grep $MYIP) 
-if [ $MYIP = $IZIN ]; then 
+if [ $MYIP = "190.14.62.108" ]; then 
 echo -e "\e[32mPermission Accepted...\e[0m" 
 VALIDITY 
 else 
